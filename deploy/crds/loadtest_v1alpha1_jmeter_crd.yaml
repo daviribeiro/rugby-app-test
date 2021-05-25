@@ -1,0 +1,20 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: jmeters.loadrugby-app-test.jmeter.com
+  namespace: jmeter-loadrugby-app-test  
+spec:
+  group: loadrugby-app-test.jmeter.com
+  names:
+    kind: Jmeter
+    listKind: JmeterList
+    plural: jmeters
+    singular: jmeter
+  scope: Namespaced
+  subresources:
+    status: {}
+  version: v1alpha1
+  versions:
+  - name: v1alpha1
+    served: true
+    storage: true

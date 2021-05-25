@@ -1,0 +1,23 @@
+apiVersion: loadrugby-app-test.jmeter.com/v1alpha1
+kind: Jmeter
+metadata:
+  name: rugby-app-test-loadrugby-app-test
+  namespace: rugby-app-test
+spec:
+  # Add fields here
+  slave_size: 10
+  #jmeter_master_image: kubernautslabs/jmeter_master:5.0
+  jmeter_master_image: daviribeirobr/jmeter-master-jdk16
+  jmeter_master_service_type: LoadBalancer
+  #jmeter_slave_image: kubernautslabs/jmeter_slave:5.0
+  jmeter_slave_image: daviribeirobr/jmeter-slave-jdk16
+  grafana_server_root: /
+  grafana_service_type: LoadBalancer
+  grafana_image: grafana/grafana:5.2.0
+  influxdb_service_type: LoadBalancer
+  influxdb_image: influxdb:1.8.4
+  #influxdb_image: influxdb
+  grafana_install: "false"
+  grafana_reporter_install: "false"
+  grafana_reporter_image: kubernautslabs/jmeter-reporter:larugby-app-test
+  influxdb_install: "false"

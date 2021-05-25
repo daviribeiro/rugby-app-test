@@ -1,0 +1,13 @@
+---
+# defaults file for jmeter
+slave_size: 2
+jmeter_master_image: kubernautslabs/jmeter_master:larugby-app-test
+jmeter_slave_image: kubernautslabs/jmeter_slave:larugby-app-test
+grafana_server_root: /
+grafana_service_type: NodePort
+grafana_image: grafana/grafana:5.2.0
+grafana_install: "true"
+grafana_reporter_install: "false"
+grafana_reporter_image: kubernautslabs/jmeter-reporter:larugby-app-test
+influxdb_service_type: NodePort
+influxdb_install: "true"
