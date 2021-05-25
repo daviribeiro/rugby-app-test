@@ -11,10 +11,10 @@
         labels:
           jmeter_mode: '{{ meta.name }}-jmeter-master'
       data:
-        load_rugby-app-test: |
+        load_test: |
           #!/bin/bash
-          #Script created to invoke jmeter rugby-app-test script with the slave POD IP addresses
-          #Script should be run like: ./load_rugby-app-test "path to the rugby-app-test script in jmx format"
+          #Script created to invoke jmeter test script with the slave POD IP addresses
+          #Script should be run like: ./load_test "path to the test script in jmx format"
           /jmeter/apache-jmeter-*/bin/jmeter -n -t $1 -Dserver.rmi.ssl.disable=true -R `getent ahostsv4 '{{ meta.name }}-jmeter-slaves-svc' | cut -d' ' -f1 | sort -u | awk -v ORS=, '{print $1}' | sed 's/,$//'`
 
 - name: Start Jmeter Master
@@ -45,13 +45,13 @@
               command: [ "/bin/bash", "-c", "--" ]
               args: [ "while true; do sleep 30; done;" ]
               volumeMounts:
-                - name: loadrugby-app-test
-                  mountPath: /load_rugby-app-test
-                  subPath: "load_rugby-app-test"
+                - name: loadtest
+                  mountPath: /load_test
+                  subPath: "load_test"
               ports:
               - containerPort: 60000
             volumes:
-            - name: loadrugby-app-test 
+            - name: loadtest 
               configMap:
                name: '{{ meta.name }}-jmeter-master-config'
 

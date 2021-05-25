@@ -48,7 +48,7 @@ rules:
   verbs:
   - update
 - apiGroups:
-  - loadrugby-app-test.jmeter.com
+  - loadtest.jmeter.com
   resources:
   - '*'
   verbs:

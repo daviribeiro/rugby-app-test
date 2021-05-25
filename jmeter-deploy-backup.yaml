@@ -1,8 +1,8 @@
-apiVersion: loadrugby-app-test.jmeter.com/v1alpha1
+apiVersion: loadtest.jmeter.com/v1alpha1
 kind: Jmeter
 metadata:
-  name: rugby-app-test-loadrugby-app-test
-  namespace: rugby-app-test
+  name: test-loadtest
+  namespace: test
 spec:
   # Add fields here
   slave_size: 10
@@ -19,5 +19,5 @@ spec:
   #influxdb_image: influxdb
   grafana_install: "false"
   grafana_reporter_install: "false"
-  grafana_reporter_image: kubernautslabs/jmeter-reporter:larugby-app-test
+  grafana_reporter_image: kubernautslabs/jmeter-reporter:latest
   influxdb_install: "false"

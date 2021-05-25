@@ -1,10 +1,10 @@
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
-  name: jmeters.loadrugby-app-test.jmeter.com
-  namespace: jmeter-loadrugby-app-test  
+  name: jmeters.loadtest.jmeter.com
+  namespace: jmeter-loadtest  
 spec:
-  group: loadrugby-app-test.jmeter.com
+  group: loadtest.jmeter.com
   names:
     kind: Jmeter
     listKind: JmeterList

@@ -1,5 +1,5 @@
 ---
 - version: v1alpha1
-  group: loadrugby-app-test.jmeter.com
+  group: loadtest.jmeter.com
   kind: Jmeter
   role: /opt/ansible/roles/jmeter

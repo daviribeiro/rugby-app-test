@@ -1,4 +1,4 @@
-apiVersion: loadrugby-app-test.jmeter.com/v1alpha1
+apiVersion: loadtest.jmeter.com/v1alpha1
 kind: Jmeter
 metadata:
   name: tqa
@@ -6,9 +6,9 @@ metadata:
 spec:
   # Add fields here
   slave_size: 2
-  jmeter_master_image: kubernautslabs/jmeter_master:larugby-app-test
+  jmeter_master_image: kubernautslabs/jmeter_master:latest
   jmeter_master_service_type: LoadBalancer
-  jmeter_slave_image: kubernautslabs/jmeter_slave:larugby-app-test
+  jmeter_slave_image: kubernautslabs/jmeter_slave:latest
   grafana_server_root: /
   grafana_service_type: LoadBalancer
   grafana_image: grafana/grafana:5.2.0
@@ -16,5 +16,5 @@ spec:
   influxdb_image: influxdb:1.8.4
   grafana_install: "true"
   grafana_reporter_install: "false"
-  grafana_reporter_image: kubernautslabs/jmeter-reporter:larugby-app-test
+  grafana_reporter_image: kubernautslabs/jmeter-reporter:latest
   influxdb_install: "true"

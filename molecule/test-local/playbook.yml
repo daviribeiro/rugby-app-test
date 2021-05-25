@@ -3,7 +3,7 @@
 - name: Build Operator in Kubernetes docker container
   hosts: k8s
   vars:
-    image_name: loadrugby-app-test.jmeter.com/jmeter-operator:rugby-app-testing
+    image_name: loadtest.jmeter.com/jmeter-operator:testing
   tasks:
   # using command so we don't need to install any dependencies
   - name: Get existing image hash
@@ -23,8 +23,8 @@
     ansible_python_interpreter: '{{ ansible_playbook_python }}'
     deploy_dir: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') }}/deploy"
     pull_policy: Never
-    REPLACE_IMAGE: loadrugby-app-test.jmeter.com/jmeter-operator:rugby-app-testing
-    custom_resource: "{{ lookup('file', '/'.join([deploy_dir, 'crds/loadrugby-app-test_v1alpha1_jmeter_cr.yaml'])) | from_yaml }}"
+    REPLACE_IMAGE: loadtest.jmeter.com/jmeter-operator:testing
+    custom_resource: "{{ lookup('file', '/'.join([deploy_dir, 'crds/loadtest_v1alpha1_jmeter_cr.yaml'])) | from_yaml }}"
   tasks:
   - block:
     - name: Delete the Operator Deployment
@@ -54,7 +54,7 @@
         namespace: '{{ namespace }}'
         definition: "{{ lookup('template', '/'.join([deploy_dir, 'operator.yaml'])) }}"
 
-    - name: Create the loadrugby-app-test.jmeter.com/v1alpha1.Jmeter
+    - name: Create the loadtest.jmeter.com/v1alpha1.Jmeter
       k8s:
         state: present
         namespace: '{{ namespace }}'

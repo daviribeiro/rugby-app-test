@@ -7,11 +7,11 @@
 REGION=southamerica-east1
 ZONE=${REGION}-b
 PROJECT=$(gcloud config get-value project)
-CLUSTER=rugby-app-test
+CLUSTER=test
 NODES=5
 TARGET=${PROJECT}.appspot.com
 SCOPE="https://www.googleapis.com/auth/cloud-platform"
-namespace="rugby-app-test"
+namespace="test"
 
 gcloud config set compute/zone ${ZONE}
 gcloud config set project ${PROJECT}
@@ -22,18 +22,18 @@ gcloud container clusters create $CLUSTER --zone $ZONE --scopes $SCOPE --enable-
 gcloud container clusters get-credentials $CLUSTER --zone $ZONE --project $PROJECT
 
 # Resizing pool - 5 para dois slaves - sempre adicionar dois a mais para o Elastic:
-#gcloud container clusters resize rugby-app-test --node-pool default-pool --zone $ZONE --num-nodes $NODES
+#gcloud container clusters resize test --node-pool default-pool --zone $ZONE --num-nodes $NODES
 #gcloud container clusters resize $CLUSTER --node-pool default-pool --num-nodes $NODES
 
 kubectl apply -f ./deploy/crds/loadtest_v1alpha1_jmeter_crd.yaml
 
 kubectl get crd | grep jmeter
 
-kubectl describe crd jmeters.loadrugby-app-test.jmeter.com
+kubectl describe crd jmeters.loadtest.jmeter.com
 
 kubectl apply -f ./deploy/
 
-# ELK GKE Logging - logara status do cluster + status do JMeter de rugby-app-testes - formatacao do database do k8s logging:
+# ELK GKE Logging - logara status do cluster + status do JMeter de testes - formatacao do database do k8s logging:
 # kubectl apply -f "https://raw.githubusercontent.com/GoogleCloudPlatform/marketplace-k8s-app-tools/master/crd/app-crd.yaml"
 
 kubectl -n kube-system get pods | grep jmeter
