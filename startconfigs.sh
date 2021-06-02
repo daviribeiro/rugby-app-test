@@ -7,17 +7,17 @@
 REGION=southamerica-east1
 ZONE=${REGION}-b
 PROJECT=$(gcloud config get-value project)
-CLUSTER=test
+CLUSTER=rugby-app-test
 NODES=5
 TARGET=${PROJECT}.appspot.com
 SCOPE="https://www.googleapis.com/auth/cloud-platform"
-namespace="test"
+namespace="rugby-app-test"
 
 gcloud config set compute/zone ${ZONE}
 gcloud config set project ${PROJECT}
 
 # Configuracao dos conteineres
-gcloud container clusters create $CLUSTER --zone $ZONE --scopes $SCOPE --enable-autoscaling --min-nodes "28" --max-nodes "28" --machine-type=n1-standard-4 --scopes=logging-write,cloud-platform --addons HorizontalPodAutoscaling,HttpLoadBalancing
+gcloud container clusters create $CLUSTER --zone $ZONE --scopes $SCOPE --enable-autoscaling --min-nodes "50" --max-nodes "50" --machine-type=n1-standard-4 --scopes=logging-write,cloud-platform --addons HorizontalPodAutoscaling,HttpLoadBalancing
 
 gcloud container clusters get-credentials $CLUSTER --zone $ZONE --project $PROJECT
 
