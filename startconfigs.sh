@@ -17,7 +17,7 @@ gcloud config set compute/zone ${ZONE}
 gcloud config set project ${PROJECT}
 
 # Configuracao dos conteineres
-gcloud container clusters create $CLUSTER --zone $ZONE --scopes $SCOPE --enable-autoscaling --min-nodes "50" --max-nodes "50" --machine-type=n1-highmem-4 --scopes=logging-write,cloud-platform --addons HorizontalPodAutoscaling,HttpLoadBalancing
+gcloud container clusters create $CLUSTER --zone $ZONE --scopes $SCOPE --enable-autoscaling --min-nodes "50" --max-nodes "50" --machine-type=n1-highmem-2 --scopes=logging-write,cloud-platform --addons HorizontalPodAutoscaling,HttpLoadBalancing
 
 gcloud container clusters get-credentials $CLUSTER --zone $ZONE --project $PROJECT
 
