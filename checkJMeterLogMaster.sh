@@ -24,9 +24,10 @@ fi
 
 #Get Master pod details
 master_pod=`kubectl -n $namespace get po | grep jmeter-master | awk '{print $1}'`
-
+echo $master_pod
 
 # Copy Jmeter Log to Debug test execution:
-kubectl -n $namespace cp "$master_pod:/jmeter/apache-jmeter-5.0/bin/jmeter.log" ./jmeter.log
+#kubectl -n $namespace cp "$master_pod:/jmeter/apache-jmeter-5.0/bin/jmeter.log" ./jmeter.log
 
+kubectl -n $namespace exec -ti $master_pod -- /bin/bash
 
