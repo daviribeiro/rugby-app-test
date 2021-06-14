@@ -94,7 +94,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">6</stringProp>
+        <stringProp name="ThreadGroup.num_threads">150</stringProp>
         <stringProp name="ThreadGroup.ramp_time">600</stringProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">3600</stringProp>
@@ -652,7 +652,7 @@
               </elementProp>
               <elementProp name="influxDBHost" elementType="Argument">
                 <stringProp name="Argument.name">influxDBHost</stringProp>
-                <stringProp name="Argument.value">34.95.174.133</stringProp>
+                <stringProp name="Argument.value">35.198.6.110</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="influxDBPort" elementType="Argument">

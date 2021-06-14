@@ -5,7 +5,7 @@ metadata:
   namespace: rugby-app-test
 spec:
   # Add fields here
-  slave_size: 50
+  slave_size: 100
   jmeter_master_image: daviribeirobr/jmeter-master-jdk16:latest
   jmeter_master_service_type: LoadBalancer
   jmeter_slave_image: daviribeirobr/jmeter-slave-jdk16:latest
